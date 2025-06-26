@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove default backgrounds */
+nav, .force-gradient, .glass-effect {
+  background-color: transparent !important;
+}
+
+/* Force gradient background */
+.force-gradient {
+  background-image: linear-gradient(to right, #7e22ce, #3b82f6, #7e22ce) !important;
+  background-color: transparent !important;
+}
+
+body {
+  background-color: #f3f4f6;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+.transform {
+  transform: translateZ(0);
+}
+
+.transition-all {
+  transition-property: all;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.ease-in-out {
+  transition-timing-function: ease-in-out;
+}
+
+.max-h-screen {
+  max-height: 100vh;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.navbar-container,
+.navbar-container div {
+  background-color: transparent !important
+}
+
+/* Mobile menu height transitions */
+.max-h-0 {
+  max-height: 0;
+}
+
+.max-h-\[80vh\] {
+  max-height: 80vh;
+}
+
+/* Custom scrollbar for mobile menu */
+.md\:hidden::-webkit-scrollbar {
+  width: 6px;
+}
+
+.md\:hidden::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.md\:hidden::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.md\:hidden::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .animate-scroll {
+    animation: scroll-left 25s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @screen sm {
+    .scrollbar-hide {
+      background-color: #f3f4f6;
+    }
+  }
+
+  @screen md {
+    .animate-scroll {
+      animation: scroll-left 20s linear infinite;
+    }
+  }
+}
