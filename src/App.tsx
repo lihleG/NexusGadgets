@@ -16,7 +16,6 @@ const App = () => {
   const [showChatbot, setShowChatbot] = useState(false);
 
   useEffect(() => {
-    // Prevent double mounting caused by React.StrictMode in dev
     const timeout = setTimeout(() => setShowChatbot(true), 0);
     return () => clearTimeout(timeout);
   }, []);
@@ -32,7 +31,7 @@ const App = () => {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/help-and-advice" element={<HelpAndAdvice />} />
-
+          <Route path="*" element={<HomePage />} /> {/* Fallback route */}
         </Routes>
         <Footer />
         {showChatbot && <EcommerceChatbot />}

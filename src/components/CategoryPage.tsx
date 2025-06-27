@@ -82,7 +82,7 @@ const CategoryPage: React.FC = () => {
       name: "Dell XPS 15",
       description: "4K OLED InfinityEdge display, 11th Gen Intel Core",
       price: "24,999",
-      image: "assets/Dell.png",
+      image: "/assets/Dell.png",
       category: "laptops",
     },
     {
