@@ -8,7 +8,7 @@ import StripePayment from "./StripePayment"; // Import the StripePayment compone
 const CartPage = () => {
   const { state, dispatch, getExpectedDelivery } = useCart();
   const { items, subtotal, shipping, tax, total } = state;
-  const { showToast } = useToast(); // Add this for notifications
+  const { showToast } = useToast(); // notifications
 
   const [step, setStep] = useState<"cart" | "orderInfo" | "payment">("cart");
   const [orderInfo, setOrderInfo] = useState<any>(null);

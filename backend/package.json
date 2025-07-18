@@ -2,21 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Backend for the electronics e-commerce website",
-  "main": "server.js",
-  "type": "module",
+  "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
     "dev": "ts-node server.ts",
     "build": "tsc"
   },
-  "keywords": [
-    "backend",
-    "ecommerce",
-    "typescript",
-    "stripe"
-  ],
-  "author": "Lucky Lihle",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
@@ -30,3 +21,4 @@
     "typescript": "^5.8.3"
   }
 }
+
