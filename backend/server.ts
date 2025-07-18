@@ -20,7 +20,7 @@ app.post('/create-payment-intent', async (req, res) => {
       currency: 'usd',
       payment_method: paymentMethodId,
       confirm: true,
-      return_url: 'http://localhost:5173/payment-complete'
+      return_url: 'https://gadgets.netlify.app/payment-complete'
     });
 
     res.send({ success: true, paymentIntent });

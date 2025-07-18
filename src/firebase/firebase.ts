@@ -4,7 +4,7 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAnalytics } from "firebase/analytics";
-import config from "./firebaseConfig"; // Correct relative import
+import config from "./firebaseConfig"; 
 
 // Initialize Firebase
 const app = initializeApp(config);
