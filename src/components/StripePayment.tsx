@@ -42,7 +42,7 @@ const CheckoutForm = () => {
 
     try {
       // 2. Send paymentMethod.id and amount to backend to create PaymentIntent
-      const response = await fetch("http://localhost:4000/create-payment-intent", {
+      const response = await fetch("https://nexusgadgets-production.up.railway.app/create-payment-intent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
