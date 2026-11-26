@@ -137,80 +137,127 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
+  
   const AccountDropdown = () => (
-    <div className="absolute right-0 top-full mt-3 w-60 bg-white rounded-xl shadow-2xl py-2 z-[100] border border-gray-100 text-gray-800">
+    <div
+      className="absolute right-0 top-full mt-3 w-72 rounded-2xl border border-gray-200 shadow-2xl z-[9999] overflow-hidden"
+      style={{
+        backgroundColor: "#ffffff",
+        opacity: 1,
+        backdropFilter: "none",
+        isolation: "isolate",
+        boxShadow: "0 18px 45px rgba(30, 20, 60, 0.22)",
+      }}
+    >
       {user ? (
         <>
-          <div className="px-4 py-3 border-b border-gray-100">
-            <p className="text-sm font-bold text-gray-900">
-              Welcome, {user.displayName?.split(" ")[0] || "Friend"}!
-            </p>
-            <p className="text-xs text-gray-500 truncate mt-1">
-              {user.email}
-            </p>
+          {/* Account header */}
+          <div
+            className="px-5 py-5 border-b border-gray-100"
+            style={{ backgroundColor: "#faf8ff" }}
+          >
+            <div className="flex items-center gap-3">
+              {user.photoURL ? (
+                <img
+                  src={user.photoURL}
+                  alt="Profile"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-purple-100"
+                />
+              ) : (
+                <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                  <FaUser className="text-purple-700 text-lg" />
+                </div>
+              )}
+
+              <div className="min-w-0">
+                <p className="text-xs font-semibold uppercase tracking-wider text-purple-600">
+                  Your account
+                </p>
+                <p className="text-base font-bold text-gray-900 truncate">
+                  {user.displayName || "Nexus Customer"}
+                </p>
+                <p className="text-xs text-gray-500 truncate">
+                  {user.email}
+                </p>
+              </div>
+            </div>
           </div>
 
-          <Link
-            to="/account"
-            onClick={() => setIsDropdownOpen(false)}
-            className="flex items-center gap-3 px-4 py-3 text-sm hover:bg-purple-50 transition"
-          >
-            <FaUser className="text-purple-600" />
-            Account Settings
-          </Link>
+          {/* Account links */}
+          <div className="py-2" style={{ backgroundColor: "#ffffff" }}>
+            <Link
+              to="/account"
+              onClick={() => setIsDropdownOpen(false)}
+              className="flex items-center gap-3 px-5 py-3 text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition"
+            >
+              <FaUser className="text-purple-600 text-base" />
+              Account Settings
+            </Link>
 
-          <Link
-            to="/orders"
-            onClick={() => setIsDropdownOpen(false)}
-            className="flex items-center gap-3 px-4 py-3 text-sm hover:bg-purple-50 transition"
-          >
-            <FaShoppingCart className="text-purple-600" />
-            My Orders
-          </Link>
+            <Link
+              to="/orders"
+              onClick={() => setIsDropdownOpen(false)}
+              className="flex items-center gap-3 px-5 py-3 text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition"
+            >
+              <FaShoppingCart className="text-purple-600 text-base" />
+              My Orders
+            </Link>
 
-          <Link
-            to="/wishlist"
-            onClick={() => setIsDropdownOpen(false)}
-            className="flex items-center gap-3 px-4 py-3 text-sm hover:bg-purple-50 transition"
-          >
-            <FaHeart className="text-purple-600" />
-            My Wishlist
-          </Link>
+            <Link
+              to="/wishlist"
+              onClick={() => setIsDropdownOpen(false)}
+              className="flex items-center gap-3 px-5 py-3 text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition"
+            >
+              <FaHeart className="text-purple-600 text-base" />
+              My Wishlist
+            </Link>
+          </div>
 
-          <button
-            onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition border-t border-gray-100"
+          {/* Sign out */}
+          <div
+            className="border-t border-gray-100 p-2"
+            style={{ backgroundColor: "#ffffff" }}
           >
-            <FaSignOutAlt />
-            Sign Out
-          </button>
+            <button
+              onClick={handleLogout}
+              className="w-full flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-semibold text-red-600 hover:bg-red-50 transition"
+            >
+              <FaSignOutAlt />
+              Sign Out
+            </button>
+          </div>
         </>
       ) : (
         <>
-          <div className="px-4 py-3 border-b border-gray-100">
-            <p className="font-bold text-gray-900">
+          <div
+            className="px-5 py-5 border-b border-gray-100"
+            style={{ backgroundColor: "#faf8ff" }}
+          >
+            <p className="text-base font-bold text-gray-900">
               Welcome to Nexus Gadgets
             </p>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-sm text-gray-500 mt-1">
               Sign in to manage your account and orders.
             </p>
           </div>
 
-          <Link
-            to="/login"
-            onClick={() => setIsDropdownOpen(false)}
-            className="block mx-3 my-3 text-center bg-purple-700 text-white py-3 rounded-lg font-semibold hover:bg-purple-800 transition"
-          >
-            Sign In / Register
-          </Link>
+          <div className="p-4" style={{ backgroundColor: "#ffffff" }}>
+            <Link
+              to="/login"
+              onClick={() => setIsDropdownOpen(false)}
+              className="block w-full text-center bg-purple-700 text-white py-3 rounded-xl font-semibold hover:bg-purple-800 transition"
+            >
+              Sign In / Register
+            </Link>
 
-          <button
-            onClick={handleGoogleLogin}
-            className="w-full px-4 py-3 flex items-center justify-center gap-3 text-sm font-medium hover:bg-gray-50 transition"
-          >
-            <span className="font-bold text-blue-600 text-lg">G</span>
-            Continue with Google
-          </button>
+            <button
+              onClick={handleGoogleLogin}
+              className="w-full mt-3 px-4 py-3 flex items-center justify-center gap-3 text-sm font-semibold text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition"
+            >
+              <span className="font-bold text-blue-600 text-lg">G</span>
+              Continue with Google
+            </button>
+          </div>
         </>
       )}
     </div>
