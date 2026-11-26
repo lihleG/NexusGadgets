@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
@@ -6,6 +7,7 @@ import HomePage from './HomePage';
 import CategoryPage from './components/CategoryPage';
 import SearchResults from './components/SearchResults';
 import CartPage from './components/CartPage';
+import LoginPage from './components/LoginPage';
 import { CartProvider } from './components/CartContext';
 import { ToastProvider } from './components/ToastContext';
 import EcommerceChatbot from './components/EcommerceChatbot';
@@ -24,16 +26,20 @@ const App = () => {
     <CartProvider>
       <ToastProvider>
         <Navbar />
+
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/category/:categoryName" element={<CategoryPage />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/help-and-advice" element={<HelpAndAdvice />} />
-          <Route path="*" element={<HomePage />} /> {/* Fallback route */}
+          <Route path="*" element={<HomePage />} />
         </Routes>
+
         <Footer />
+
         {showChatbot && <EcommerceChatbot />}
       </ToastProvider>
     </CartProvider>
